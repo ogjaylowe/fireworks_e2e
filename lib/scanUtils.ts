@@ -9,7 +9,7 @@ export const convertFileToBase64 = (file: File): Promise<string> => {
     });
 };
 
-export const scanDocument = async (file: File) => {
+export const scanDocument = async (file: File, apiKey: string) => {
     const base64Image = await convertFileToBase64(file);
-    console.log(base64Image)
+    console.log(base64Image, apiKey)
 };

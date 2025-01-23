@@ -9,10 +9,10 @@ import { FileText, X, Scan } from "lucide-react";
 import { scanDocument } from '@/lib/scanUtils';
 
 interface DocumentUploaderProps {
-
+  apiKey: string;
 }
 
-const DocumentUploader: React.FC<DocumentUploaderProps> = () => {
+const DocumentUploader: React.FC<DocumentUploaderProps> = (apiKey) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
@@ -36,7 +36,7 @@ const DocumentUploader: React.FC<DocumentUploaderProps> = () => {
 
   const handleScan = () => {
     if (selectedFile && scanDocument) {
-      scanDocument(selectedFile);
+      scanDocument(selectedFile, apiKey.apiKey);
     }
   };
 
